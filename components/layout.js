@@ -335,7 +335,8 @@ export default function Layout({ children }) {
       </Transition>
     </Popover>
 
-        <main>{children}</main>
+<main>{children}</main>
+        
       </>
     )
   }

@@ -1,7 +1,35 @@
 import { Router, useRouter } from "next/router";
+import React, { useState, useEffect } from 'react';
+import Course from "../components/course";
 
 export default function Search() {
-  const { query } = useRouter();
+    const router = useRouter();
+  const { query } = router;
+
+  const [data, setData] = useState([]);
+  const [isLoading, setLoading] = useState(false);
+
+  useEffect(() => {
+      if (!router.isReady) return;
+    async function fetchData() {
+
+        var params1 = [];
+        if ('c' in query) {
+            if (query.c == 'fe') params1.push('further');
+            if (query.c == 'he') params1.push('higher');
+        }
+
+        console.log('/api/education?' + params1.join('&'));
+
+        setLoading(true);
+        const res1 = await fetch('/api/education?' + params1.join('&'))
+        const data1 = await res1.json();
+        console.log(data1);
+        setData(data1);
+        setLoading(false);
+      }
+      fetchData();
+  }, [router.isReady]);
 
   return (
     <>
@@ -10,16 +38,17 @@ export default function Search() {
         <span className="px-4 inline text-gray-500 font-bold">{">"}</span>
         <span className="inline text-gray-500 font-bold">Search</span>
       </div>
+      <div id="container" className="flex flex-col justify-between align-middle items-center">
       <div id="header">
         <form action="/search" method="get">
-          <div className="mt-5 sm:mt-8 sm:flex sm:justify-center">
+          <div className="my-5 sm:mt-8 sm:flex sm:justify-center">
             <div className="flex shadow-lg rounded-md">
               <div className="rounded-md">
                 <select
                   type="text"
                   name="c"
                   id="category"
-                  className="focus:ring-indigo-500 focus:border-indigo-500 pl-4 pr-7 sm:text-sm rounded-r-none border-gray-300 rounded-m h-full w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md"
+                  className="focus:ring-indigo-500 focus:border-indigo-500 pl-8 pr-12 sm:text-sm rounded-r-none border-gray-300 rounded-m h-full w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md"
                 >
                   <option value="fe">Further Education</option>
                   <option value="he">Higher Education</option>
@@ -33,7 +62,7 @@ export default function Search() {
                   type="text"
                   name="t"
                   id="terms"
-                  className="w-[28rem] focus:ring-indigo-500 focus:border-indigo-500 pl-4 pr-7 sm:text-sm rounded-l-none rounded-r-none border-gray-300 rounded-m h-full w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md"
+                  className="w-[28rem] focus:ring-indigo-500 focus:border-indigo-500 pl-8 pr-12 sm:text-sm rounded-l-none rounded-r-none border-gray-300 rounded-m h-full w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md"
                   placeholder="Keywords"
                 />
               </div>
@@ -42,7 +71,7 @@ export default function Search() {
                   type="text"
                   name="l"
                   id="location"
-                  className="focus:ring-indigo-500 focus:border-indigo-500 pl-4 pr-7 sm:text-sm rounded-r-none rounded-l-none border-gray-300 rounded-m h-full w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md"
+                  className="focus:ring-indigo-500 focus:border-indigo-500 pl-8 pr-12 sm:text-sm rounded-r-none rounded-l-none border-gray-300 rounded-m h-full w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md"
                 >
                   <option value="all">Northern Ireland- wide</option>
                   <option value="ant">Antrim</option>
@@ -66,15 +95,17 @@ export default function Search() {
           </div>
         </form>
       </div>
-      <div id="main" className="grid grid-cols-12">
+      <div id="main" className="w-9/12 grid grid-cols-12">
           <div id="sidebar" className="col-span-3">
-
+              <p>hello world</p>
           </div>
           <div id="results" className="col-span-9">
               {
-                  
+                  isLoading ? <p>Loading...</p> :
+                  data.map((item) => <Course title={item.title} level={item.level} code={item.code} campus={item.campus} time={item.time} school={item.school} url={item.url} apprenticeship={item.apprenticeship} type={item.type} />)
               }
           </div>
+      </div>
       </div>
     </>
   );

@@ -5,18 +5,18 @@ const cheerio = require('cheerio')
 export default async function handler(req, res) {
     if (req.method === 'GET') {
         var data = [];
-        if ('further' in req.query) data.push(await getFE);
-        if ('higher' in req.query) data.push(await getHE);
+        if ('further' in req.query) data = data.concat(await getFE());
+        if ('higher' in req.query) data = data.concat(await getHE());
         res.status(200).send(data);
     } else {
       res.sendStatus(405);
     }
   }
 
-const getFE = new Promise(async (resolve, reject) => {
+function getFE() { return new Promise(async (resolve, reject) => {
     const FE = [];
 
-    const belfastmet = await Nightmare({ show: true }).goto(`https://www.belfastmet.ac.uk/courses/?subjectareas=computing-it-and-multimedia&moa=full-time&level=further-education`)
+    const belfastmet = await Nightmare({ show: false }).goto(`https://www.belfastmet.ac.uk/courses/?subjectareas=computing-it-and-multimedia&moa=full-time&level=further-education`)
     .wait('body')
     .wait('p.search-results-total')
     .evaluate(() => document.querySelector('body').innerHTML)
@@ -37,7 +37,7 @@ const getFE = new Promise(async (resolve, reject) => {
             })
         })
 
-    const nrc = await Nightmare({ show: true }).goto(`https://www.nrc.ac.uk/search/?section[]=16&keywords=computing`)
+    const nrc = await Nightmare({ show: false }).goto(`https://www.nrc.ac.uk/search/?section[]=16&keywords=computing`)
     .wait('body')
     .wait('div.content-block-wrap')
     .evaluate(() => document.querySelector('body').innerHTML)
@@ -59,12 +59,12 @@ const getFE = new Promise(async (resolve, reject) => {
     })
 
     resolve(FE);
-});
+})};
 
-const getHE = new Promise(async (resolve, reject) => {
+function getHE() { return new Promise(async (resolve, reject) => {
     const HE = [];
 
-    const belfastmet = await Nightmare({ show: true }).goto(`https://www.belfastmet.ac.uk/courses/?subjectareas=computing-it-and-multimedia&moa=full-time&level=higher-education`)
+    const belfastmet = await Nightmare({ show: false }).goto(`https://www.belfastmet.ac.uk/courses/?subjectareas=computing-it-and-multimedia&moa=full-time&level=higher-education`)
     .wait('body')
     .wait('p.search-results-total')
     .evaluate(() => document.querySelector('body').innerHTML)
@@ -85,7 +85,7 @@ const getHE = new Promise(async (resolve, reject) => {
             })
         })
 
-    const nrc = await Nightmare({ show: true }).goto(`https://www.nrc.ac.uk/search/?section[]=18&keywords=computing`)
+    const nrc = await Nightmare({ show: false }).goto(`https://www.nrc.ac.uk/search/?section[]=18&keywords=computing`)
     .wait('body')
     .wait('div.content-block-wrap')
     .evaluate(() => document.querySelector('body').innerHTML)
@@ -107,4 +107,4 @@ const getHE = new Promise(async (resolve, reject) => {
     })
 
     resolve(HE);
-});
+})};
