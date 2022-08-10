@@ -18,23 +18,23 @@ export default function Course({ title, level, code, campus, time, school, url, 
             </div>
             <div className="col-span-4">
                 <div className="flex">
-                    <AcademicCapIcon className="h-5 w-5" />
-                    <p className="ml-1">Level {level}</p>
+                    <AcademicCapIcon className="h-5 w-5 text-gray-500" />
+                    <p className="ml-1 text-gray-500">Level {level}</p>
                 </div>
                 <div className="flex">
-                    <ClockIcon className="h-5 w-5" />
-                    <p className="ml-1">{time}</p>
+                    <ClockIcon className="h-5 w-5 text-gray-500" />
+                    <p className="ml-1 text-gray-500">{time}</p>
                 </div>
                 <div className="flex">
-                    <HomeIcon className="h-5 w-5" />
-                    <p className="ml-1">{type}</p>
+                    <HomeIcon className="h-5 w-5 text-gray-500" />
+                    <p className="ml-1 text-gray-500">{type}</p>
                 </div>
                 {
                     apprenticeship ? 
                 
                 <div className="flex">
-                    <BriefcaseIcon className="h-5 w-5" />
-                    <p className="ml-1">Apprenticeship</p>
+                    <BriefcaseIcon className="h-5 w-5 text-gray-500" />
+                    <p className="ml-1 text-gray-500">Apprenticeship</p>
                 </div>
 
                 : null }
