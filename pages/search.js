@@ -98,7 +98,56 @@ export default function Search() {
       <div id="main" className="w-9/12 grid grid-cols-12 gap-8">
           <div id="sidebar" className="col-span-3">
               <div className="rounded-md border-[2px] border-gray-100 p-5">
-                  <p className="text-2xl">Filter</p>
+                  <p className="text-2xl mb-4">Filter</p>
+
+                  <p className="font-bold">Qualification levels</p>
+
+                  <div className="grid grid-cols-12 gap-2">
+                    <div><input type="checkbox" id="horns" name="horns" /></div>
+                    <div className="col-span-9"><span>Level 2</span></div>
+                    <div className="text-gray-400">12</div>
+                  </div>
+
+                  <div className="grid grid-cols-12 gap-2">
+                    <div><input type="checkbox" id="horns" name="horns" /></div>
+                    <div className="col-span-9"><span>Level 3</span></div>
+                    <div className="text-gray-400">5</div>
+                  </div>
+
+                  <div className="grid grid-cols-12 gap-2">
+                    <div><input type="checkbox" id="horns" name="horns" /></div>
+                    <div className="col-span-9"><span>Level 4</span></div>
+                    <div className="text-gray-400">2</div>
+                  </div>
+
+                  <div className="grid grid-cols-12 gap-2">
+                    <div><input type="checkbox" id="horns" name="horns" /></div>
+                    <div className="col-span-9"><span>Level 5</span></div>
+                    <div className="text-gray-400">2</div>
+                  </div>
+
+                   <p className="font-bold mt-3">Course length</p>
+
+                  <div className="grid grid-cols-12 gap-2">
+                    <div><input type="checkbox" id="horns" name="horns" /></div>
+                    <div className="col-span-9"><span>Part-time</span></div>
+                    <div className="text-gray-400">0</div>
+                  </div>
+
+                  <div className="grid grid-cols-12 gap-2">
+                    <div><input type="checkbox" id="horns" name="horns" /></div>
+                    <div className="col-span-9"><span>Full-time</span></div>
+                    <div className="text-gray-400">19</div>
+                  </div>
+
+                  <p className="font-bold mt-3">Opportunities</p>
+
+                  <div className="grid grid-cols-12 gap-2">
+                    <div><input type="checkbox" id="horns" name="horns" /></div>
+                    <div className="col-span-9"><span>Apprenticeship</span></div>
+                    <div className="text-gray-400">2</div>
+                  </div>
+
               </div>
           </div>
           <div id="results" className="col-span-9">
