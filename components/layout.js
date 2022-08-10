@@ -25,46 +25,60 @@ import {
   XIcon,
 } from '@heroicons/react/outline'
 import { ChevronDownIcon } from '@heroicons/react/solid'
+import React, { useState, useEffect } from 'react';
+import { Router, useRouter } from "next/router";
 
 export default function Layout({ children }) {
+
+  const [data, setData] = useState([]);
 
   const searchcategories = [
     {
       name: 'Further Education',
       description: 'Search for Level 2 and 3 qualifications and courses available within Northern Ireland',
-      href: '#',
+      href: '/search?c=fe',
       icon: ChevronDoubleUpIcon,
     },
     {
       name: 'Higher Education',
       description: 'Search for degree courses instructed at Northern Irish universities and colleges',
-      href: '#',
+      href: '/search?c=he',
       icon: AcademicCapIcon,
     },
     {
       name: 'Apprenticeships',
       description: "Find a further education or degree apprenticeship in Northern Ireland",
-      href: '#',
+      href: '/search?c=ap',
       icon: HandIcon
     },
     {
       name: 'Work Experience',
       description: "Discover work experience programmes available for 13-18 year olds",
-      href: '#',
+      href: '/search?c=we',
       icon: EyeIcon,
     },
     {
       name: 'Jobs',
-      description: 'Build strategic funnels that will drive your customers to convert',
-      href: '#',
+      description: 'Seek work and employement opportunities across Northern Ireland\'s IT sector',
+      href: '/search?c=em',
       icon: BriefcaseIcon,
     },
   ]
-  const recentPosts = [
-    { id: 1, name: 'lorem ipsum', href: '#' },
-    { id: 2, name: 'lorem ipsum', href: '#' },
-    { id: 3, name: 'lorem ipsum', href: '#' },
-  ]
+  const recentPosts = []
+
+  const router = useRouter();
+
+  useEffect(() => {
+    if (!router.isReady) return;
+  async function fetchData() {
+
+      const res1 = await fetch('/api/blog')
+      const data1 = await res1.json();
+
+      setData([data1[0], data1[1], data1[2]]);
+    }
+    fetchData();
+}, [router.isReady]);
   
   function classNames(...classes) {
     return classes.filter(Boolean).join(' ')
@@ -98,16 +112,24 @@ export default function Layout({ children }) {
             </Popover.Button>
           </div>
           <Popover.Group as="nav" className="hidden md:flex space-x-10">
+
+          <a href="/" className="text-base font-medium text-gray-500 hover:text-gray-900">
+                Home
+            </a>
+
             <Popover className="relative">
               {({ open }) => (
                 <>
+
+            
+
                   <Popover.Button
                     className={classNames(
                       open ? 'text-gray-900' : 'text-gray-500',
                       'group bg-white rounded-md inline-flex items-center text-base font-medium hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500'
                     )}
                   >
-                    <span>Discover</span>
+                    <span>Find</span>
                     <ChevronDownIcon
                       className={classNames(
                         open ? 'text-gray-600' : 'text-gray-400',
@@ -219,17 +241,17 @@ export default function Layout({ children }) {
                           <div>
                             <h3 className="text-sm tracking-wide font-medium text-gray-500 uppercase">Recent Posts</h3>
                             <ul role="list" className="mt-4 space-y-4">
-                              {recentPosts.map((post) => (
+                              {data.map((post) => (
                                 <li key={post.id} className="text-base truncate">
-                                  <a href={post.href} className="font-medium text-gray-900 hover:text-gray-700">
-                                    {post.name}
+                                  <a href={"/blog/" + post.id} className="font-medium text-gray-900 hover:text-gray-700">
+                                    {post.title}
                                   </a>
                                 </li>
                               ))}
                             </ul>
                           </div>
                           <div className="mt-5 text-sm">
-                            <a href="#" className="font-medium text-red-600 hover:text-red-500">
+                            <a href="/blog" className="font-medium text-red-600 hover:text-red-500">
                               {' '}
                               View all posts <span aria-hidden="true">&rarr;</span>
                             </a>
