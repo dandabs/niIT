@@ -50,11 +50,11 @@ export default function Search() {
                   id="category"
                   className="focus:ring-indigo-500 focus:border-indigo-500 pl-8 pr-12 sm:text-sm rounded-r-none border-gray-300 rounded-m h-full w-full flex items-center justify-center px-8 py-3 border text-base font-medium rounded-md"
                 >
-                  <option value="fe">Further Education</option>
-                  <option value="he">Higher Education</option>
-                  <option value="ap">Apprenticeships</option>
-                  <option value="we">Work Experience</option>
-                  <option value="em">Jobs</option>
+                  <option value="fe" selected={query.c === "fe"}>Further Education</option>
+                  <option value="he" selected={query.c === "he"}>Higher Education</option>
+                  <option value="ap" selected={query.c === "ap"}>Apprenticeships</option>
+                  <option value="we" selected={query.c === "we"}>Work Experience</option>
+                  <option value="em" selected={query.c === "em"}>Jobs</option>
                 </select>
               </div>
               <div className="rounded-md">
@@ -62,6 +62,7 @@ export default function Search() {
                   type="text"
                   name="t"
                   id="terms"
+                  defaultValue={query.t}
                   className="w-[28rem] focus:ring-indigo-500 focus:border-indigo-500 pl-8 pr-12 sm:text-sm rounded-l-none rounded-r-none border-gray-300 rounded-m h-full w-full flex items-center justify-center px-8 py-3 border text-base font-medium rounded-md"
                   placeholder="Keywords"
                 />
@@ -73,13 +74,13 @@ export default function Search() {
                   id="location"
                   className="focus:ring-indigo-500 focus:border-indigo-500 pl-8 pr-12 sm:text-sm rounded-r-none rounded-l-none border-gray-300 rounded-m h-full w-full flex items-center justify-center px-8 py-3 border text-base font-medium rounded-md"
                 >
-                  <option value="all">Northern Ireland- wide</option>
-                  <option value="ant">Antrim</option>
-                  <option value="arm">Armagh</option>
-                  <option value="der">Derry/Londonderry</option>
-                  <option value="dow">Down</option>
-                  <option value="fer">Fermanagh</option>
-                  <option value="tyr">Tyrone</option>
+                  <option value="all" selected={query.l === "all"}>Northern Ireland- wide</option>
+                  <option value="ant" selected={query.l === "ant"}>Antrim</option>
+                  <option value="arm" selected={query.l === "arm"}>Armagh</option>
+                  <option value="der" selected={query.l === "der"}>Derry/Londonderry</option>
+                  <option value="dow" selected={query.l === "dow"}>Down</option>
+                  <option value="fer" selected={query.l === "fer"}>Fermanagh</option>
+                  <option value="tyr" selected={query.l === "tyr"}>Tyrone</option>
                 </select>
               </div>
               <div className="rounded-md">
