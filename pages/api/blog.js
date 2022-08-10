@@ -8,7 +8,7 @@ export default async function handler(req, res) {
       // request does not include a specific post xoxo
       try {
         const result = await execute({
-          q: "SELECT blog.*,users.displayname FROM blog INNER JOIN users ON blog.user=users.id",
+          q: "SELECT blog.*,users.displayname FROM blog INNER JOIN users ON blog.user=users.id ORDER BY time DESC",
           v: []
         });
         console.log(result);
