@@ -64,7 +64,6 @@ export default function Layout({ children }) {
       icon: BriefcaseIcon,
     },
   ]
-  const recentPosts = []
 
   const router = useRouter();
 
