@@ -95,10 +95,10 @@ export default function Search() {
           </div>
         </form>
       </div>
-      <div id="main" className="w-9/12 grid grid-cols-12">
+      <div id="main" className="w-9/12 grid grid-cols-12 gap-8">
           <div id="sidebar" className="col-span-3">
-              <div className="">
-
+              <div className="rounded-md border-[2px] border-gray-100 p-5">
+                  <p className="">Filter</p>
               </div>
           </div>
           <div id="results" className="col-span-9">
