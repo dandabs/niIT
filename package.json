@@ -6,10 +6,15 @@
     "axios": "^0.27.2",
     "cheerio": "^1.0.0-rc.12",
     "debug": "^4.3.4",
+    "html-react-parser": "^3.0.1",
     "next": "^12.2.4",
     "nightmare": "^3.0.2",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "react-icons": "^4.4.0",
+    "react-quill": "^2.0.0",
+    "serverless-mysql": "^1.5.4",
+    "string-strip-html": "^11.1.0"
   },
   "scripts": {
     "dev": "next dev",
