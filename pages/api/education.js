@@ -60,6 +60,28 @@ function getFE() { return new Promise(async (resolve, reject) => {
         })
     })
 
+    const src = await Nightmare({ show: false }).goto(`https://www.src.ac.uk/courses/search?s=0&moa=Full%20Time&type=FE&subject=CIMU`)
+    .wait('body')
+    .wait('.col-md-8')
+    .evaluate(() => document.querySelector('body').innerHTML)
+    .end();
+
+    var $ = cheerio.load(src);
+    $('.col-md-9.col-sm-8.col-xs-12').each((i, elem) => {
+        FE.push({
+            title: $(elem).find('.col-md-12').find('h3').next().find('a').text().split(' Level')[0],
+            level: $(elem).find('.col-md-12.col-xs-12').find('span.level').text().split('Level ')[1],
+            code: $(elem).find('.col-md-12').find('h3').text().split(' ')[0],
+            campus: $(elem).find('.col-md-12.col-xs-12').find('span.campus').text().split(' Campus')[0],
+            time: $(elem).find('.col-md-12.col-xs-12').find('span.campus').text(),
+            school: 'Southern Regional College',
+            url: $(elem).find('.col-md-12').find('h3').next().find('a').attr('href'),
+            apprenticeship: false,
+            type: "Further Education",
+            image: "/img/src.png"
+        })
+    })
+
     resolve(FE);
 })};
 
