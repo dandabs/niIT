@@ -25,7 +25,7 @@ function getFE() { return new Promise(async (resolve, reject) => {
     var $ = cheerio.load(belfastmet);
         $('.search-result-item').each((i, elem) => {
             FE.push({
-                title: $(elem).find('h2.search-result-item-heading').find('span.search-result-item-title').text(),
+                title: $(elem).find('h2.search-result-item-heading').find('span.search-result-item-title').text().split(' (')[0],
                 level: $(elem).find('h2.search-result-item-heading').find('span.search-result-item-qualification').text().split('Level ')[1].trim().endsWith('Apprenticeship') ? $(elem).find('h2.search-result-item-heading').find('span.search-result-item-qualification').text().split('Level ')[1].trim().split(' Apprenticeship')[0] : $(elem).find('h2.search-result-item-heading').find('span.search-result-item-qualification').text().split('Level ')[1].trim(),
                 code: $(elem).find('p').text(),
                 campus: $(elem).find('div.campus').text(),
@@ -33,7 +33,8 @@ function getFE() { return new Promise(async (resolve, reject) => {
                 school: 'Belfast Met',
                 url: "https://belfastmet.ac.uk" + $(elem).parent('a').attr('href'),
                 apprenticeship: $(elem).find('h2.search-result-item-heading').find('span.search-result-item-qualification').text().split('Level ')[1].trim().endsWith('Apprenticeship') ? true : false,
-                type: "Further Education"
+                type: "Further Education",
+                image: "https://www.agendani.com/wp-content/uploads/2020/07/Belfast-Met-Logos-2020.png"
             })
         })
 
@@ -54,7 +55,8 @@ function getFE() { return new Promise(async (resolve, reject) => {
             school: 'Northern Regional College',
             url: $(elem).find('div.content-block-primary').find('h2').find('a').attr('href'),
             apprenticeship: false,
-            type: "Further Education"
+            type: "Further Education",
+            image: "/img/nrcLogo.webp"
         })
     })
 
@@ -73,7 +75,7 @@ function getHE() { return new Promise(async (resolve, reject) => {
     var $ = cheerio.load(belfastmet);
         $('.search-result-item').each((i, elem) => {
             HE.push({
-                title: $(elem).find('h2.search-result-item-heading').find('span.search-result-item-title').text(),
+                title: $(elem).find('h2.search-result-item-heading').find('span.search-result-item-title').text().split(' (')[0],
                 level: $(elem).find('h2.search-result-item-heading').find('span.search-result-item-qualification').text().trim(),
                 code: $(elem).find('p').text(),
                 campus: $(elem).find('div.campus').text(),
@@ -81,7 +83,8 @@ function getHE() { return new Promise(async (resolve, reject) => {
                 school: 'Belfast Met',
                 url: "https://belfastmet.ac.uk" + $(elem).parent('a').attr('href'),
                 ///apprenticeship: $(elem).find('h2.search-result-item-heading').find('span.search-result-item-qualification').text().split('Level ')[1].trim().endsWith('Apprenticeship') ? true : false,
-                type: "Higher Education"
+                type: "Higher Education",
+                image: "https://www.agendani.com/wp-content/uploads/2020/07/Belfast-Met-Logos-2020.png"
             })
         })
 
@@ -102,7 +105,8 @@ function getHE() { return new Promise(async (resolve, reject) => {
             school: 'Northern Regional College',
             url: $(elem).find('div.content-block-primary').find('h2').find('a').attr('href'),
             apprenticeship: false,
-            type: "Higher Education"
+            type: "Higher Education",
+            image: "/img/nrcLogo.webp"
         })
     })
 

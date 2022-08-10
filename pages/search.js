@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import Course from "../components/course";
 
 export default function Search() {
-    const router = useRouter();
+  const router = useRouter();
   const { query } = router;
 
   const [data, setData] = useState([]);
@@ -42,13 +42,13 @@ export default function Search() {
       <div id="header">
         <form action="/search" method="get">
           <div className="my-5 sm:mt-8 sm:flex sm:justify-center">
-            <div className="flex shadow-lg rounded-md">
+            <div className="flex shadow-md rounded-md">
               <div className="rounded-md">
                 <select
                   type="text"
                   name="c"
                   id="category"
-                  className="focus:ring-indigo-500 focus:border-indigo-500 pl-8 pr-12 sm:text-sm rounded-r-none border-gray-300 rounded-m h-full w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md"
+                  className="focus:ring-indigo-500 focus:border-indigo-500 pl-8 pr-12 sm:text-sm rounded-r-none border-gray-300 rounded-m h-full w-full flex items-center justify-center px-8 py-3 border text-base font-medium rounded-md"
                 >
                   <option value="fe">Further Education</option>
                   <option value="he">Higher Education</option>
@@ -62,7 +62,7 @@ export default function Search() {
                   type="text"
                   name="t"
                   id="terms"
-                  className="w-[28rem] focus:ring-indigo-500 focus:border-indigo-500 pl-8 pr-12 sm:text-sm rounded-l-none rounded-r-none border-gray-300 rounded-m h-full w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md"
+                  className="w-[28rem] focus:ring-indigo-500 focus:border-indigo-500 pl-8 pr-12 sm:text-sm rounded-l-none rounded-r-none border-gray-300 rounded-m h-full w-full flex items-center justify-center px-8 py-3 border text-base font-medium rounded-md"
                   placeholder="Keywords"
                 />
               </div>
@@ -71,7 +71,7 @@ export default function Search() {
                   type="text"
                   name="l"
                   id="location"
-                  className="focus:ring-indigo-500 focus:border-indigo-500 pl-8 pr-12 sm:text-sm rounded-r-none rounded-l-none border-gray-300 rounded-m h-full w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md"
+                  className="focus:ring-indigo-500 focus:border-indigo-500 pl-8 pr-12 sm:text-sm rounded-r-none rounded-l-none border-gray-300 rounded-m h-full w-full flex items-center justify-center px-8 py-3 border text-base font-medium rounded-md"
                 >
                   <option value="all">Northern Ireland- wide</option>
                   <option value="ant">Antrim</option>
@@ -86,7 +86,7 @@ export default function Search() {
                 <button
                   href="#"
                   type="submit"
-                  className="w-full flex items-center justify-center px-8 py-3 border border-transparent rounded-l-none text-base font-medium rounded-md text-white bg-red-600 hover:bg-red-700 md:py-4 md:text-lg md:px-10"
+                  className="w-full flex items-center justify-center px-8 py-3 border rounded-l-none text-base font-medium rounded-md text-white bg-red-600 hover:bg-red-700 md:py-4 md:text-lg md:px-10"
                 >
                   Search
                 </button>
@@ -97,12 +97,17 @@ export default function Search() {
       </div>
       <div id="main" className="w-9/12 grid grid-cols-12">
           <div id="sidebar" className="col-span-3">
-              <p>hello world</p>
+              <div className="">
+
+              </div>
           </div>
           <div id="results" className="col-span-9">
               {
                   isLoading ? <p>Loading...</p> :
-                  data.map((item) => <Course title={item.title} level={item.level} code={item.code} campus={item.campus} time={item.time} school={item.school} url={item.url} apprenticeship={item.apprenticeship} type={item.type} />)
+                  <>
+                    <p>{data.length} results</p>
+                    { data.map((item) => <Course title={item.title} level={item.level} code={item.code} campus={item.campus} time={item.time} school={item.school} url={item.url} apprenticeship={item.apprenticeship} type={item.type} image={item.image} />) }
+                  </>
               }
           </div>
       </div>
