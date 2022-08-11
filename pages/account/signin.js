@@ -22,10 +22,7 @@ export default function Signin() {
       if (!success) {
         alert('Your username or password is incorrect. Try again?')
       } else {
-        cookieCutter.set('session', {
-          user,
-          pass: aes.encrypt(pass,'insecurehashxoxo')
-        })
+        cookieCutter.set('session', user + "::" + aes.encrypt(pass,'insecurehashxoxo'))
         window.location.href = '/account/profile';
 
     }
