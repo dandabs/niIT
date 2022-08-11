@@ -22,7 +22,7 @@ export default function Signin() {
       if (!success) {
         alert('Your username or password is incorrect. Try again?')
       } else {
-        cookieCutter.set('session', user + "::" + aes.encrypt(pass,'insecurehashxoxo'))
+        cookieCutter.set('session', user + "::" + aes.encrypt(pass,'insecurehashxoxo'), { path: "/" })
         window.location.href = '/account/profile';
 
     }
@@ -72,7 +72,7 @@ export default function Signin() {
             />
 
             <button className="bg-neutral-900 rounded-2xl w-2/3 mt-4 text-white py-3" onClick={(e) => tryLogin(e, document.getElementById('username').value, document.getElementById('password').value)}>
-              Register
+              Sign in
             </button>
             <p className="mt-12 mb-2">Don't have an account? Sign up <a href="/register" className="text-red-600">here</a>.</p>
         </div>

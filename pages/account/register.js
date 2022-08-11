@@ -29,7 +29,7 @@ export default function Register() {
       if (!success) {
         alert('Oops! An error occurred. Please try again later.')
       } else {
-        cookieCutter.set('session', user + "::" + aes.encrypt(pass,'insecurehashxoxo'))
+        cookieCutter.set('session', user + "::" + aes.encrypt(pass,'insecurehashxoxo'), { path: "/" })
         window.location.href = '/account/profile';
       }
 

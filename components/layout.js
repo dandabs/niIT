@@ -21,16 +21,20 @@ import {
   SearchIcon,
   ShieldCheckIcon,
   SupportIcon,
+  UserIcon,
   ViewGridIcon,
   XIcon,
 } from '@heroicons/react/outline'
-import { ChevronDownIcon } from '@heroicons/react/solid'
+import { ChevronDownIcon, UserCircleIcon } from '@heroicons/react/solid'
 import React, { useState, useEffect } from 'react';
 import { Router, useRouter } from "next/router";
+
+import cookieCutter from 'cookie-cutter';
 
 export default function Layout({ children }) {
 
   const [data, setData] = useState([]);
+  const [cookie, setCookie] = useState(undefined);
 
   const searchcategories = [
     {
@@ -69,6 +73,7 @@ export default function Layout({ children }) {
 
   useEffect(() => {
     if (!router.isReady) return;
+    if (!!cookieCutter.get("session")) setCookie(cookieCutter.get("session"));
   async function fetchData() {
 
       const res1 = await fetch('/api/blog')
@@ -264,6 +269,11 @@ export default function Layout({ children }) {
             </Popover>
           </Popover.Group>
           <div className="hidden md:flex items-center justify-end md:flex-1 lg:w-0">
+            
+            { typeof cookie == 'undefined' ?
+
+<>
+            
             <a href="/account/signin" className="whitespace-nowrap text-base font-medium text-gray-500 hover:text-gray-900">
               Sign in
             </a>
@@ -273,6 +283,23 @@ export default function Layout({ children }) {
             >
               Sign up
             </a>
+
+            </>
+
+            : <div className="flex flex-row justify-center items-center">
+            
+            <a href="/account/profile" className="whitespace-nowrap text-base font-medium text-gray-500 hover:text-gray-900 py-2 text-red-600">
+              {cookie.split("::")[0]}
+            </a>
+
+            <UserCircleIcon className="text-red-600 h-8 w-8 ml-2 cursor-pointer" onClick={(e) => {
+              cookieCutter.set('session', '', { path: "/", expiry: Date(0) });
+              window.location.href = '/';
+            }} />
+            
+            </div>
+
+}
           </div>
         </div>
       </div>

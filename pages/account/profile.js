@@ -52,7 +52,7 @@ export default function Profile() {
           <div className="mt-8 w-full bg-white rounded-md p-5 shadow-xl">
               <div>
                   <span className="text-xl font-semibold">Profile settings</span>
-                  <p className="text-neutral-600">Update your main public profile settings using the fields below. Don't forget to save!</p>
+                  <p className="text-neutral-600">Update your main public profile settings using the fields below. You can view your public profile page <a href={"/@" + data[0].username} className="text-red-600">here</a>!</p>
               </div>
               <div className="grid grid-cols-2 gap-8 mt-4">
                   <div className="flex flex-col">
