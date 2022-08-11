@@ -44,7 +44,7 @@ export default function Search() {
                   name="s"
                   id="terms"
                   defaultValue={query.t}
-                  className="w-[57rem] focus:ring-indigo-500 focus:border-indigo-500 pl-8 pr-12 sm:text-sm rounded-r-none border-gray-300 rounded-m h-full w-full flex items-center justify-center px-8 py-3 border text-base font-medium rounded-md"
+                  className="w-[57rem] focus:ring-indigo-500 focus:border-indigo-500 pl-8 pr-12 sm:text-sm rounded-r-none border-gray-300 rounded-m h-full flex items-center justify-center px-8 py-3 border text-base font-medium rounded-md"
                   placeholder="Keywords"
                 />
               </div>

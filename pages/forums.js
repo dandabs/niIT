@@ -1,6 +1,10 @@
+import { AcademicCapIcon, BriefcaseIcon, CashIcon, ChatIcon, CodeIcon, FireIcon, GlobeIcon, ServerIcon, SunIcon } from "@heroicons/react/outline";
 import { Router, useRouter } from "next/router";
 import React, { useState, useEffect } from 'react';
 import Blog from "../components/blog";
+import Forum from "../components/forum";
+
+import { SiHtml5, SiNodedotjs, SiJava, SiPython, SiCplusplus, SiRuby } from 'react-icons/si';
 
 export default function Search() {
   const router = useRouter();
@@ -10,21 +14,121 @@ export default function Search() {
   const [isLoading, setLoading] = useState(false);
 
   useEffect(() => {
-      if (!router.isReady) return;
-    async function fetchData() {
+    if (!router.isReady) return;
+  async function fetchData() {
 
-        var toSearch = 's' in query;
-        var reqParams = toSearch ? "?s=" + query.s : "";
+      const res1 = await fetch('/api/blog')
+      const data1 = await res1.json();
 
-        setLoading(true);
-        const res1 = await fetch('/api/blog' + reqParams)
-        const data1 = await res1.json();
+      setData([data1[0], data1[1], data1[2]]);
+    }
+    fetchData();
+}, [router.isReady]);
 
-        setData(data1);
-        setLoading(false);
-      }
-      fetchData();
-  }, [router.isReady]);
+  var categories = [
+    {
+      "id": "main",
+      "name": "Main Category",
+      "forums": [
+        {
+          "id": "general",
+          "name": "General Discussion",
+          "description": "Maecenas efficitur tincidunt libero, eget hendrerit ante tincidunt nec. Mauris eu dapibus sapien.",
+          "icon": ChatIcon
+        },
+        {
+          "id": "cybersec",
+          "name": "Cyber-security",
+          "description": "Maecenas porta tristique lacinia. Sed elit ex, tristique vitae egestas vel, scelerisque ac eros.",
+          "icon": FireIcon
+        },
+        {
+          "id": "software",
+          "name": "Software Engineering",
+          "description": "Maecenas efficitur tincidunt libero, eget hendrerit ante tincidunt nec. Mauris eu dapibus sapien.",
+          "icon": CodeIcon
+        },
+        {
+          "id": "network",
+          "name": "Networking",
+          "description": "Maecenas efficitur tincidunt libero, eget hendrerit ante tincidunt nec. Mauris eu dapibus sapien.",
+          "icon": GlobeIcon
+        },
+        {
+          "id": "cybersec",
+          "name": "System Administration",
+          "description": "Maecenas porta tristique lacinia. Sed elit ex, tristique vitae egestas vel, scelerisque ac eros.",
+          "icon": ServerIcon
+        },
+      ]
+    },
+    {
+      "id": "code",
+      "name": "Development",
+      "forums": [
+        {
+          "id": "html",
+          "name": "HTML, CSS, JS",
+          "description": "Maecenas efficitur tincidunt libero, eget hendrerit ante tincidunt nec. Mauris eu dapibus sapien.",
+          "icon": SiHtml5
+        },
+        {
+          "id": "node",
+          "name": "NodeJS",
+          "description": "Maecenas porta tristique lacinia. Sed elit ex, tristique vitae egestas vel, scelerisque ac eros.",
+          "icon": SiNodedotjs
+        },
+        {
+          "id": "java",
+          "name": "Java",
+          "description": "Maecenas efficitur tincidunt libero, eget hendrerit ante tincidunt nec. Mauris eu dapibus sapien.",
+          "icon": SiJava
+        },
+        {
+          "id": "python",
+          "name": "Python",
+          "description": "Maecenas efficitur tincidunt libero, eget hendrerit ante tincidunt nec. Mauris eu dapibus sapien.",
+          "icon": SiPython
+        },
+        {
+          "id": "cplusplus",
+          "name": "C++",
+          "description": "Maecenas porta tristique lacinia. Sed elit ex, tristique vitae egestas vel, scelerisque ac eros.",
+          "icon": SiCplusplus
+        },
+        {
+          "id": "ruby",
+          "name": "Ruby",
+          "description": "Maecenas porta tristique lacinia. Sed elit ex, tristique vitae egestas vel, scelerisque ac eros.",
+          "icon": SiRuby
+        },
+      ]
+    },
+    {
+      "id": "employment",
+      "name": "Employment",
+      "forums": [
+        {
+          "id": "interviews",
+          "name": "Interviews",
+          "description": "Maecenas efficitur tincidunt libero, eget hendrerit ante tincidunt nec. Mauris eu dapibus sapien.",
+          "icon": BriefcaseIcon
+        },
+        {
+          "id": "salary",
+          "name": "Salaries",
+          "description": "Maecenas porta tristique lacinia. Sed elit ex, tristique vitae egestas vel, scelerisque ac eros.",
+          "icon": CashIcon
+        },
+        {
+          "id": "general",
+          "name": "General",
+          "description": "Maecenas efficitur tincidunt libero, eget hendrerit ante tincidunt nec. Mauris eu dapibus sapien.",
+          "icon": ChatIcon
+        },
+      ]
+    }
+  ]
 
   return (
     <>
@@ -44,7 +148,7 @@ export default function Search() {
                   name="s"
                   id="terms"
                   defaultValue={query.t}
-                  className="w-[57rem] focus:ring-indigo-500 focus:border-indigo-500 pl-8 pr-12 sm:text-sm rounded-r-none border-gray-300 rounded-m h-full w-full flex items-center justify-center px-8 py-3 border text-base font-medium rounded-md"
+                  className="w-[57rem] focus:ring-indigo-500 focus:border-indigo-500 pl-8 pr-12 sm:text-sm rounded-r-none border-gray-300 rounded-m h-full flex items-center justify-center px-8 py-3 border text-base font-medium rounded-md"
                   placeholder="Keywords"
                 />
               </div>
@@ -61,29 +165,42 @@ export default function Search() {
           </div>
         </form>
       </div>
-      <div id="main" className="w-9/12 grid grid-cols-12 gap-8">
+      <div id="main" className="w-9/12 grid grid-cols-12 gap-8 mt-4">
           <div id="results" className="col-span-9">
               {
                   isLoading ? <p>Loading...</p> :
                   <>
-                    <p>{data.length} results</p>
-                    { data.map((item) => <Blog data={item} />) }
+                    { categories.map((item) => <Forum data={item} />) }
                   </>
               }
           </div>
           <div id="sidebar" className="col-span-3">
               <div className="rounded-md border-[2px] border-gray-100 p-5">
-                  <p className="text-2xl mb-4">Filter</p>
+                  <p className="text-2xl mb-4">Recent Posts</p>
 
-                  <p className="font-bold">Sectors</p>
+                  {/* className="mb-2">Join the Kainos Amongus Server for more information and to talk to industry professionals!</p>*/}
 
-                  <div className="grid grid-cols-12 gap-2">
-                    <div><input type="checkbox" id="horns" name="horns" /></div>
-                    <div className="col-span-9"><span>Software development</span></div>
-                    <div className="text-gray-400">12</div>
-                  </div>
+                  {
+                    data.map((post) => (
+                      <div className="mb-2">
+                        <a href={"/blog/" + post.id}><p className="font-semibold">{post.title}</p></a>
+                        <a href={"/@" + post.username}><p className="text-gray-500">by <span className="text-red-600">{post.displayname}</span></p></a>
+                        <p className="text-gray-500">{new Date(post.time).toLocaleDateString()} at {new Date(post.time).toLocaleTimeString()}</p>
+                      </div>
+                    ))
+                  }
 
               </div>
+
+              <div className="rounded-md border-[2px] border-gray-100 p-5 mt-3">
+                  <p className="text-2xl mb-4">Community</p>
+
+                  {/* className="mb-2">Join the Kainos Amongus Server for more information and to talk to industry professionals!</p>*/}
+
+                  <iframe className="w-full" src="https://discord.com/widget?id=1006198736248123504&theme=light" height="600" allowtransparency="true" frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
+
+              </div>
+
           </div>
       </div>
       </div>
