@@ -42,7 +42,7 @@ export default function BlogPost() {
         <span className="inline text-gray-500 dark:text-gray-400 font-bold">{data.title}</span>
       </div>
       <div id="container" className="flex flex-col justify-between align-middle items-center">
-      <div id="header" className="pt-10 pb-5 w-9/12">
+      <div id="header" className="pt-10 pb-5 w-11/12 lg:w-9/12">
           <h1 className="font-extrabold text-4xl">{data.title}</h1>
           <div className="flex flex-row">
               <div className="flex mr-4">
@@ -55,14 +55,14 @@ export default function BlogPost() {
               </div>
           </div>
       </div>
-      <div id="main" className="w-9/12">
+      <div id="main" className="w-11/12 lg:w-9/12">
           <div id="post" className="col-span-9">
               {
                   isLoading ? <p>Loading...</p> : parse(data.content)
               }
           </div>
       </div>
-        <hr className="w-9/12 my-12" />
+        <hr className="w-11/12 lg:w-9/12 my-12" />
         <span className="text-3xl font-bold">About the author</span>
         <img src={data.pfp} className="h-36 w-36 object-cover rounded-full mt-4 mb-2" />
         <span className="font-bold text-xl">{data.displayname}</span>

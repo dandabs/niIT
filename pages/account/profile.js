@@ -48,18 +48,18 @@ export default function Profile() {
           height: 'calc(100vh - 134px)',
           width: '100vw',
       }}>
-      <div id="main" className="w-9/12">
+      <div id="main" className="w-11/12 lg:w-9/12">
           <div className="mt-8 w-full bg-white dark:bg-neutral-800 rounded-md p-5 shadow-xl">
               <div>
                   <span className="text-xl font-semibold">Profile settings</span>
                   <p className="text-neutral-600 dark:text-neutral-400">Update your main public profile settings using the fields below. You can view your public profile page <a href={"/@" + data[0].username} className="text-red-600">here</a>!</p>
               </div>
               <div className="grid grid-cols-2 gap-8 mt-4">
-                  <div className="flex flex-col">
+                  <div className="flex flex-col col-span-2 lg:col-span-1">
                       <a className="font-bold text-lg">Username</a>
                       <input readOnly={true} defaultValue={data[0].username} type="text" name="username" id="username" className="dark:bg-neutral-700 w-full rounded-2xl focus:ring-indigo-500 focus:border-indigo-500 pl-8 pr-12 sm:text-sm border-gray-400 dark:border-neutral-500 h-full px-8 py-3 border font-medium" />
                   </div>
-                  <div className="flex flex-col">
+                  <div className="flex flex-col col-span-2 lg:col-span-1">
                       <a className="font-bold text-lg">Display name</a>
                       <input defaultValue={data[0].displayname} type="text" name="displayname" id="displayname" className="dark:bg-neutral-700 w-full rounded-2xl focus:ring-indigo-500 focus:border-indigo-500 pl-8 pr-12 sm:text-sm border-gray-400 dark:border-neutral-500 h-full px-8 py-3 border font-medium" />
                   </div>
@@ -74,7 +74,7 @@ export default function Profile() {
                 <button
                   href="#"
                   type="submit"
-                  className="w-1/12 flex items-center justify-center px-8 py-1 text-base font-medium rounded-md text-white bg-red-500 hover:bg-red-700 md:py-2 md:text-lg md:px-10"
+                  className="w-full md:w-1/12 flex items-center justify-center px-8 py-1 text-base font-medium rounded-md text-white bg-red-500 hover:bg-red-700 md:py-2 md:text-lg md:px-10"
                   onClick={(e) => saveProfile(e, document.getElementById('username').value, document.getElementById('displayname').value, document.getElementById('bio').value)}
                 >
                   Save

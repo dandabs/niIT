@@ -102,7 +102,7 @@ export default function Home() {
             <div className="sm:text-center lg:text-left">
               <h1 className="text-4xl tracking-tight font-extrabold text-gray-900 dark:text-white sm:text-5xl md:text-6xl">
                 <span className="block xl:inline">{t(`Welcome to IT in`)}</span>{' '}
-                <span className="block text-red-600 xl:inline">{t(`Northern Ireland`)}</span><span className="block xl:inline">.</span>
+                <span className="block text-red-600 xl:inline">{t(`Northern Ireland`)}</span><span className="hidden xl:block xl:inline">.</span>
               </h1>
               <p className="mt-3 text-base text-gray-500 dark:text-gray-300 sm:mt-5 sm:text-lg sm:max-w-xl sm:mx-auto md:mt-5 md:text-xl lg:mx-0">
               {t(`We're findIT - your one stop shop for everything IT related in Northern Ireland: jobs, education, training, apprenticeships and more.`)}
@@ -163,14 +163,14 @@ export default function Home() {
     <p className="text-white">{t(`Northern Ireland has never needed more qualified IT professionals. It's time for you to get started.`)}</p>
 </div>
 
-<div className="grid grid-cols-2 gap-6 w-9/12 my-16">
+<div className="grid grid-cols-1 lg:grid-cols-2 gap-6 w-11/12 lg:w-9/12 my-16">
 <div>
 
   <div className="grid grid-cols-12 gap-2">
     <div className="bg-red-400 rounded-md w-14 h-14">
       <CashIcon className="text-white w-14 h-14" />
     </div>
-    <div className="col-span-11 flex justify-center flex-col">
+    <div className="col-span-12 lg:col-span-11 flex justify-center flex-col">
       <span className="text-2xl ml-4 font-semibold">{t(`Competitive salaries`)}</span>
       <p className="ml-4 text-lg font-light">{t(`The average tech salary in Northern Ireland is £33,000. A graduate software developer can expect a starting salary from £24,000–£32,000. That compares to an average salary of £26,232 across all jobs in NI.`)}</p>
     </div>
@@ -180,7 +180,7 @@ export default function Home() {
     <div className="bg-red-400 rounded-md w-14 h-14">
       <CakeIcon className="text-white w-14 h-14" />
     </div>
-    <div className="col-span-11 flex justify-center flex-col">
+    <div className="col-span-12 lg:col-span-11 flex justify-center flex-col">
       <span className="text-2xl ml-4 font-semibold">{t(`Relaxed working enviornment`)}</span>
       <p className="ml-4 text-lg font-light">{t(`With IT skills in such high demand, employers offer good conditions to help keep their team happy and motivated. Perks can include free tea, coffee, snacks and lunches, free beer Friday, yoga, social gatherings and well-being initiatives.`)}</p>
     </div>
@@ -190,7 +190,7 @@ export default function Home() {
     <div className="bg-red-400 rounded-md w-14 h-14">
       <EmojiHappyIcon className="text-white w-14 h-14" />
     </div>
-    <div className="col-span-11 flex justify-center flex-col">
+    <div className="col-span-12 lg:col-span-11 flex justify-center flex-col">
       <span className="text-2xl ml-4 font-semibold">{t(`Rewarding career`)}</span>
       <p className="ml-4 text-lg font-light">{t(`IT projects involve working in a team of enthusiastic and like-minded people. You’ll help each other to develop and fulfil your potential. This makes for a rewarding career.`)}</p>
     </div>
@@ -200,14 +200,14 @@ export default function Home() {
     <div className="bg-red-400 rounded-md w-14 h-14">
       <GlobeIcon className="text-white w-14 h-14" />
     </div>
-    <div className="col-span-11 flex justify-center flex-col">
+    <div className="col-span-12 lg:col-span-11 flex justify-center flex-col">
       <span className="text-2xl ml-4 font-semibold">{t(`Make a difference`)}</span>
       <p className="ml-4 text-lg font-light">{t(`You’ll get many different opportunities to use your IT skills for social good. Big data is being used to help fight climate change and predict the spread of diseases such as COVID-19.`)}</p>
     </div>
   </div>
 
 </div>
-<div className="flex justify-center items-center">
+<div className="flex justify-center items-center hidden lg:block">
   <img src="https://www.pngkey.com/png/full/287-2871511_happiness-is-an-inside-job-person-on-computer.png" style={{
     filter: 'drop-shadow(0 5px 5px rgba(0,0,0,.5))'
   }} />

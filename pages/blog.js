@@ -44,7 +44,7 @@ export default function Search() {
                   name="s"
                   id="terms"
                   defaultValue={query.t}
-                  className="w-[57rem] dark:bg-neutral-800 dark:border-neutral-700 focus:ring-indigo-500 focus:border-indigo-500 pl-8 pr-12 sm:text-sm rounded-r-none border-gray-300 rounded-m h-full flex items-center justify-center px-8 py-3 border text-base font-medium rounded-md"
+                  className="lg:w-[57rem] dark:bg-neutral-800 dark:border-neutral-700 focus:ring-indigo-500 focus:border-indigo-500 pl-8 pr-12 sm:text-sm rounded-r-none border-gray-300 rounded-m h-full flex items-center justify-center px-8 py-3 border text-base font-medium rounded-md"
                   placeholder="Keywords"
                 />
               </div>
@@ -61,8 +61,8 @@ export default function Search() {
           </div>
         </form>
       </div>
-      <div id="main" className="w-9/12 grid grid-cols-12 gap-8">
-          <div id="sidebar" className="col-span-3">
+      <div id="main" className="w-11/12 lg:w-9/12 grid grid-cols-12 gap-8">
+          <div id="sidebar" className="col-span-12 lg:col-span-3">
               <div className="rounded-md border-[2px] border-gray-100 p-5">
                   <p className="text-2xl mb-4">Filter</p>
 
@@ -146,7 +146,7 @@ export default function Search() {
 
               </div>
           </div>
-          <div id="results" className="col-span-9">
+          <div id="results" className="col-span-12 lg:col-span-9">
               {
                   isLoading ? <p>Loading...</p> :
                   <>

@@ -52,12 +52,12 @@ export default function Register() {
         backgroundPosition: 'center center',
         backgroundSize: 'cover'
       }}>
-      <div id="main" className="w-1/3 rounded-lg bg-white p-5 shadow-2xl">
+      <div id="main" className="w-11/12 md:w-1/3 rounded-lg bg-white p-5 shadow-2xl">
         <div className="flex justify-center">
           <span className="text-3xl font-semibold text-gray-700 mt-5">Register an account</span>
         </div>
         <div className="flex justify-center mt-12">
-          <div className="bg-black rounded-2xl text-white flex justify-center items-center p-2 w-2/3">
+          <div className="bg-black rounded-2xl text-white flex justify-center items-center p-2 w-11/12 lg:w-2/3">
             <SiGithub className="text-lg" />
             <span className="text-lg ml-3 pt-1">Sign up with GitHub</span>
           </div>
@@ -68,7 +68,7 @@ export default function Register() {
                   type="text"
                   name="username"
                   id="username"
-                  className="dark:text-neutral-700 bg-gray-200 w-2/3 rounded-2xl focus:ring-indigo-500 focus:border-indigo-500 pl-8 pr-12 sm:text-sm border-gray-400 h-full flex items-center justify-center px-8 py-3 border text-base font-medium"
+                  className="dark:text-neutral-700 bg-gray-200 w-11/12 lg:w-2/3 rounded-2xl focus:ring-indigo-500 focus:border-indigo-500 pl-8 pr-12 sm:text-sm border-gray-400 h-full flex items-center justify-center px-8 py-3 border text-base font-medium"
             />
 
             <p className="float-left mt-4 dark:text-neutral-700">Password</p>
@@ -76,13 +76,13 @@ export default function Register() {
                   type="password"
                   name="password"
                   id="password"
-                  className="dark:text-neutral-700 bg-gray-200 w-2/3 rounded-2xl focus:ring-indigo-500 focus:border-indigo-500 pl-8 pr-12 sm:text-sm border-gray-400 h-full flex items-center justify-center px-8 py-3 border text-base font-medium"
+                  className="dark:text-neutral-700 bg-gray-200 w-11/12 lg:w-2/3 rounded-2xl focus:ring-indigo-500 focus:border-indigo-500 pl-8 pr-12 sm:text-sm border-gray-400 h-full flex items-center justify-center px-8 py-3 border text-base font-medium"
             />
 
-            <button className="bg-neutral-900 rounded-2xl w-2/3 mt-4 text-white py-3" onClick={(e) => tryLogin(e, document.getElementById('username').value, document.getElementById('password').value)}>
+            <button className="bg-neutral-900 rounded-2xl w-11/12 lg:w-2/3 mt-4 text-white py-3" onClick={(e) => tryLogin(e, document.getElementById('username').value, document.getElementById('password').value)}>
               Register
             </button>
-            <p className="mt-12 mb-2 dark:text-neutral-700">Already have an account? Sign in <a href="/account/login" className="text-red-600">here</a>.</p>
+            <p className="mt-12 mb-2 dark:text-neutral-700">Already have an account? Sign in <a href="/account/signin" className="text-red-600">here</a>.</p>
         </div>
       </div>
       </div>
