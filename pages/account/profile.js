@@ -3,12 +3,16 @@ import React, { useState, useEffect } from 'react';
 
 import cookieCutter from 'cookie-cutter';
 
+import 'react-quill/dist/quill.snow.css'
+import dynamic from 'next/dynamic'
+
 export default function Profile() {
   const router = useRouter();
   const { query } = router;
 
   const [data, setData] = useState({});
   const [isLoading, setLoading] = useState(false);
+  const [value, setValue] = useState("");
 
   useEffect(() => {
       if (!router.isReady) return;
@@ -35,6 +39,11 @@ export default function Profile() {
 
   }
 
+  const QuillNoSSRWrapper = dynamic(import('react-quill'), {	
+    ssr: false,
+    loading: () => <p>Loading ...</p>,
+    })
+
   return (
     <>
       <div id="nav" className="py-2 px-8 bg-gray-50 border-gray-100 dark:bg-neutral-800 dark:border-neutral-700 border-b-2">
@@ -52,7 +61,7 @@ export default function Profile() {
           <div className="mt-8 w-full bg-white dark:bg-neutral-800 rounded-md p-5 shadow-xl">
               <div>
                   <span className="text-xl font-semibold">Profile settings</span>
-                  <p className="text-neutral-600 dark:text-neutral-400">Update your main public profile settings using the fields below. You can view your public profile page <a href={"/@" + data[0].username} className="text-red-600">here</a>!</p>
+                  <p className="text-neutral-600 dark:text-neutral-400">Update your main public profile settings using the fields below. You can view your public profile page <a href={"/" + data[0].username} className="text-red-600">here</a>!</p>
               </div>
               <div className="grid grid-cols-2 gap-8 mt-4">
                   <div className="flex flex-col col-span-2 lg:col-span-1">
@@ -78,6 +87,39 @@ export default function Profile() {
                   onClick={(e) => saveProfile(e, document.getElementById('username').value, document.getElementById('displayname').value, document.getElementById('bio').value)}
                 >
                   Save
+                </button>
+                </div>
+
+          </div>
+
+          <div className="mt-8 w-full bg-white dark:bg-neutral-800 rounded-md p-5 shadow-xl">
+              <div>
+                  <span className="text-xl font-semibold">Post to the blog</span>
+                  <p className="text-neutral-600 dark:text-neutral-400">As an industry professional, you have permissions to post to the public findIT blog.</p>
+              </div>
+              <div className="grid grid-cols-2 gap-8 mt-4">
+                  <div className="flex flex-col col-span-2 lg:col-span-1">
+                      <a className="font-bold text-lg">Title</a>
+                      <input type="text" name="title" id="title" className="dark:bg-neutral-700 w-full rounded-2xl focus:ring-indigo-500 focus:border-indigo-500 pl-8 pr-12 sm:text-sm border-gray-400 dark:border-neutral-500 h-full px-8 py-3 border font-medium" />
+                  </div>
+              </div>
+
+              <div className="flex flex-col mt-4">
+                      <a className="font-bold text-lg">Biography</a>
+                      <QuillNoSSRWrapper theme="snow" onChange={setValue} value={value} />
+                </div>
+
+                <div className="flex flex-col mt-4 justify-end items-end">
+                <button
+                  href="#"
+                  type="submit"
+                  className="w-full md:w-1/12 flex items-center justify-center px-8 py-1 text-base font-medium rounded-md text-white bg-red-500 hover:bg-red-700 md:py-2 md:text-lg md:px-10"
+                  onClick={async (e) => {
+                    await fetch('/api/postblog?user=' + cookieCutter.get("session").split("::")[0] + "&title=" + document.getElementById('title').value + "&content=" + value);
+                    window.location.href = '/blog';
+                  }}
+                >
+                  Publish
                 </button>
                 </div>
 

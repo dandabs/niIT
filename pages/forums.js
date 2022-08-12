@@ -184,7 +184,7 @@ export default function Search() {
                     data.map((post) => (
                       <div className="mb-2">
                         <a href={"/blog/" + post.id}><p className="font-semibold">{post.title}</p></a>
-                        <a href={"/@" + post.username}><p className="text-gray-500 dark:text-gray-400">by <span className="text-red-600">{post.displayname}</span></p></a>
+                        <a href={"/" + post.username}><p className="text-gray-500 dark:text-gray-400">by <span className="text-red-600">{post.displayname}</span></p></a>
                         <p className="text-gray-500 dark:text-gray-400">{new Date(post.time).toLocaleDateString()} at {new Date(post.time).toLocaleTimeString()}</p>
                       </div>
                     ))

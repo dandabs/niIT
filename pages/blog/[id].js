@@ -66,7 +66,7 @@ export default function BlogPost() {
         <span className="text-3xl font-bold">About the author</span>
         <img src={data.pfp} className="h-36 w-36 object-cover rounded-full mt-4 mb-2" />
         <span className="font-bold text-xl">{data.displayname}</span>
-        <a href={"/@" + data.username} className="text-red-600 font-semibold">Visit profile</a>
+        <a href={"/" + data.username} className="text-red-600 font-semibold">Visit profile</a>
         <span>{data.bio}</span>
         <div className="flex items-center mt-4 mb-12">
             <a href={""}><SiTwitter className="text-gray-300 hover:text-gray-400 text-5xl mx-2" /></a>
