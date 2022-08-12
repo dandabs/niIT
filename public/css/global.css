@@ -13,7 +13,7 @@ body {
 }
 
 body::after {
-  height: 198px;
+  height: 250px;
   content: '';
   display: block;
 }

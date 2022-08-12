@@ -3,6 +3,9 @@ import { Popover, Transition } from '@headlessui/react'
 import { MenuIcon, XIcon } from '@heroicons/react/outline'
 import { CashIcon, CakeIcon, ClipboardCheckIcon, TableIcon, EmojiHappyIcon, GlobeAltIcon, GlobeIcon } from '@heroicons/react/solid'
 
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
+import { useTranslation } from 'next-i18next';
+
 const navigation = [
   { name: 'Product', href: '#' },
   { name: 'Features', href: '#' },
@@ -10,7 +13,17 @@ const navigation = [
   { name: 'Company', href: '#' },
 ]
 
+export async function getStaticProps({ locale }) {
+  return {
+    props: {
+      ...(await serverSideTranslations(locale, ['common'])),
+      // Will be passed to the page component as props
+    },
+  };
+}
+
 export default function Home() {
+  const { t } = useTranslation('common');
   return (
     <>
     <div className="relative bg-white overflow-hidden dark:bg-neutral-900">
@@ -88,11 +101,11 @@ export default function Home() {
           <main className="mt-10 mx-auto max-w-7xl px-4 sm:mt-12 sm:px-6 md:mt-16 lg:mt-20 lg:px-8 xl:mt-28">
             <div className="sm:text-center lg:text-left">
               <h1 className="text-4xl tracking-tight font-extrabold text-gray-900 dark:text-white sm:text-5xl md:text-6xl">
-                <span className="block xl:inline">Welcome to IT in</span>{' '}
-                <span className="block text-red-600 xl:inline">Northern Ireland</span><span className="block xl:inline">.</span>
+                <span className="block xl:inline">{t(`Welcome to IT in`)}</span>{' '}
+                <span className="block text-red-600 xl:inline">{t(`Northern Ireland`)}</span><span className="block xl:inline">.</span>
               </h1>
               <p className="mt-3 text-base text-gray-500 dark:text-gray-300 sm:mt-5 sm:text-lg sm:max-w-xl sm:mx-auto md:mt-5 md:text-xl lg:mx-0">
-                We're findIT - your one stop shop for everything IT related in Northern Ireland: jobs, education, training, apprenticeships and more.
+              {t(`We're findIT - your one stop shop for everything IT related in Northern Ireland: jobs, education, training, apprenticeships and more.`)}
               </p>
               <form action="/search" method="get">
               <div className="mt-5 sm:mt-8 sm:flex sm:justify-center lg:justify-start">
@@ -103,11 +116,11 @@ export default function Home() {
           id="category"
           className="dark:bg-neutral-800 dark:border-neutral-700 focus:ring-indigo-500 focus:border-indigo-500 pl-4 pr-7 sm:text-sm rounded-r-none border-gray-300 rounded-m h-full w-full flex items-center justify-center px-8 py-3 border text-base font-medium rounded-md"
         >
-                <option value="fe">Further Education</option>
-                <option value="he">Higher Education</option>
-                <option value="ap">Apprenticeships</option>
-                <option value="we">Work Experience</option>
-                <option value="em">Jobs</option>
+                <option value="fe">{t(`Further Education`)}</option>
+                <option value="he">{t(`Higher Education`)}</option>
+                <option value="ap">{t(`Apprenticeships`)}</option>
+                <option value="we">{t(`Work Experience`)}</option>
+                <option value="em">{t(`Jobs`)}</option>
             </select>
                 </div>
               <div className="rounded-md shadow">
@@ -125,7 +138,7 @@ export default function Home() {
                     type="submit"
                     className="w-full flex items-center justify-center px-8 py-3 border border-transparent rounded-l-none text-base font-medium rounded-md text-white bg-red-600 hover:bg-red-700 md:py-4 md:text-lg md:px-10"
                   >
-                    Search
+                    {t(`Search`)}
                   </button>
                 </div>
               </div>
@@ -146,8 +159,8 @@ export default function Home() {
 <div className="flex flex-col justify-center items-center" id="main">
 
 <div className="bg-red-800 w-full shadow-xl flex flex-col justify-center items-center p-4">
-    <span className="text-white text-3xl">Why a career in IT?</span>
-    <p className="text-white">Northern Ireland has never needed more qualified IT professionals. It's time for you to get started.</p>
+    <span className="text-white text-3xl">{t(`Why a career in IT?`)}</span>
+    <p className="text-white">{t(`Northern Ireland has never needed more qualified IT professionals. It's time for you to get started.`)}</p>
 </div>
 
 <div className="grid grid-cols-2 gap-6 w-9/12 my-16">
@@ -158,8 +171,8 @@ export default function Home() {
       <CashIcon className="text-white w-14 h-14" />
     </div>
     <div className="col-span-11 flex justify-center flex-col">
-      <span className="text-2xl ml-4 font-semibold">Competitive salaries</span>
-      <p className="ml-4 text-lg font-light">The average tech salary in Northern Ireland is £33,000. A graduate software developer can expect a starting salary from £24,000–£32,000. That compares to an average salary of £26,232 across all jobs in NI.</p>
+      <span className="text-2xl ml-4 font-semibold">{t(`Competitive salaries`)}</span>
+      <p className="ml-4 text-lg font-light">{t(`The average tech salary in Northern Ireland is £33,000. A graduate software developer can expect a starting salary from £24,000–£32,000. That compares to an average salary of £26,232 across all jobs in NI.`)}</p>
     </div>
   </div>
 
@@ -168,8 +181,8 @@ export default function Home() {
       <CakeIcon className="text-white w-14 h-14" />
     </div>
     <div className="col-span-11 flex justify-center flex-col">
-      <span className="text-2xl ml-4 font-semibold">Relaxed working enviornment</span>
-      <p className="ml-4 text-lg font-light">With IT skills in such high demand, employers offer good conditions to help keep their team happy and motivated. Perks can include free tea, coffee, snacks and lunches, free beer Friday, yoga, social gatherings and well-being initiatives.</p>
+      <span className="text-2xl ml-4 font-semibold">{t(`Relaxed working enviornment`)}</span>
+      <p className="ml-4 text-lg font-light">{t(`With IT skills in such high demand, employers offer good conditions to help keep their team happy and motivated. Perks can include free tea, coffee, snacks and lunches, free beer Friday, yoga, social gatherings and well-being initiatives.`)}</p>
     </div>
   </div>
 
@@ -178,8 +191,8 @@ export default function Home() {
       <EmojiHappyIcon className="text-white w-14 h-14" />
     </div>
     <div className="col-span-11 flex justify-center flex-col">
-      <span className="text-2xl ml-4 font-semibold">Rewarding career</span>
-      <p className="ml-4 text-lg font-light">IT projects involve working in a team of enthusiastic and like-minded people. You’ll help each other to develop and fulfil your potential. This makes for a rewarding career.</p>
+      <span className="text-2xl ml-4 font-semibold">{t(`Rewarding career`)}</span>
+      <p className="ml-4 text-lg font-light">{t(`IT projects involve working in a team of enthusiastic and like-minded people. You’ll help each other to develop and fulfil your potential. This makes for a rewarding career.`)}</p>
     </div>
   </div>
 
@@ -188,8 +201,8 @@ export default function Home() {
       <GlobeIcon className="text-white w-14 h-14" />
     </div>
     <div className="col-span-11 flex justify-center flex-col">
-      <span className="text-2xl ml-4 font-semibold">Make a difference</span>
-      <p className="ml-4 text-lg font-light">You’ll get many different opportunities to use your IT skills for social good. Big data is being used to help fight climate change and predict the spread of diseases such as COVID-19.</p>
+      <span className="text-2xl ml-4 font-semibold">{t(`Make a difference`)}</span>
+      <p className="ml-4 text-lg font-light">{t(`You’ll get many different opportunities to use your IT skills for social good. Big data is being used to help fight climate change and predict the spread of diseases such as COVID-19.`)}</p>
     </div>
   </div>
 

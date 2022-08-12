@@ -30,6 +30,7 @@ import React, { useState, useEffect } from 'react';
 import { Router, useRouter } from "next/router";
 
 import cookieCutter from 'cookie-cutter';
+import Link from "next/link";
 
 export default function Layout({ children }) {
 
@@ -401,12 +402,18 @@ export default function Layout({ children }) {
   <img src="/img/niit2.png" className="w-20 pb-2 pt-10 dark:brightness-[600] dark:contrast-0" />
   <span className="font-light text-neutral-700 dark:text-neutral-300">&copy; 2022 Daníel Adams. All rights reserved.</span>
 
+  <div className="flex flex-row justify-content items-center mt-1 mb-4">
+    <Link href="/" locale="en"><a className="px-4 font-semibold">English</a></Link>
+    <Link href="/" locale="ie"><a className="px-4 font-semibold">Gaeilge</a></Link>
+    <Link href="/" locale="pl"><a className="px-4 font-semibold">Polskie</a></Link>
+  </div>
+
   <div className="flex flex-row justify-content items-center mt-6 mb-1">
     <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" className="px-4 font-semibold">Privacy policy</a>
     <a href="https://github.com/dandabs/niIT/commits/main" className="px-4 font-semibold">Changelog</a>
   </div>
 
-  <div className="flex flex-row justify-content items-center mb-4">
+  <div className="flex flex-row justify-content items-center mb-6">
     {
       isDark ?
       <a href="#" className="px-4 font-semibold" onClick={(_) => {
