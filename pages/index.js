@@ -214,6 +214,102 @@ export default function Home() {
 </div>
 </div>
 
+<div className="bg-red-800 w-full shadow-xl flex flex-col justify-center items-center p-4">
+    <span className="text-white text-3xl">How do I get started?</span>
+    <p className="text-white">Regardless of what age you are, it's much eaiser to get your foot in the door than you probably expect.</p>
+</div>
+
+<div className="grid grid-cols-1 lg:grid-cols-2 gap-6 w-11/12 lg:w-9/12 my-16">
+<div>
+  
+
+  <div className="grid grid-cols-12 gap-2">
+    <div className="w-14 h-14">
+    <img className="h-16" src="https://imgs.search.brave.com/CNw7JaY5FUOP8nQw2k3e4mJdG-0sg9Uu2r8SGVcGDQM/rs:fit:1200:1200:1/g:ce/aHR0cHM6Ly9jZG4u/ZnJlZWJpZXN1cHBs/eS5jb20vbG9nb3Mv/bGFyZ2UvMngvcmFz/cGJlcnJ5LXBpLWxv/Z28tcG5nLXRyYW5z/cGFyZW50LnBuZw" />
+    </div>
+    <div className="col-span-12 lg:col-span-11 flex justify-center flex-col">
+      <span className="text-2xl ml-4 font-semibold">Raspberry Pi Foundation</span>
+      <p className="ml-4 text-lg font-light">The Raspberry Pi Foundation provides access to online coding resources and challenges that are free for everyone anywhere.</p>
+      <a href="https://www.raspberrypi.org/learn/" className="text-red-600 ml-4">Learn more</a>
+    </div>
+  </div>
+
+  <div className="grid grid-cols-12 gap-2 mt-24">
+    <div className="w-14 h-14">
+    <img className="h-16" src="https://imgs.search.brave.com/b-r84HxjyP8eNKuNtJhP0x80eu7iNF7gd7auyIRwCzA/rs:fit:600:600:1/g:ce/aHR0cHM6Ly9zZWN1/cmUubWVldHVwc3Rh/dGljLmNvbS9waG90/b3MvZXZlbnQvNi9k/LzIvZC82MDBfNDU2/NTY3OTQ5LmpwZWc" />
+    </div>
+    <div className="col-span-12 lg:col-span-11 flex justify-center flex-col">
+      <span className="text-2xl ml-4 font-semibold">Farset Labs</span>
+      <p className="ml-4 text-lg font-light">Farset Labs is a community funded and volunteer operated charity, opened in 2012 as a place for creativity and technological tinkering.</p>
+      <a href="https://www.farsetlabs.org.uk/" className="text-red-600 ml-4">Learn more</a>
+    </div>
+  </div>
+
+  <div className="grid grid-cols-12 gap-2 mt-24">
+    <div className="w-14 h-14">
+    <img className="h-16" src="https://imgs.search.brave.com/-8XJUN8QZ1qMBS6oF30Z6hKm5izqZGBdU0pSIBYRimE/rs:fit:591:750:1/g:ce/aHR0cHM6Ly93d3cu/cWEuY29tL21lZGlh/LzE0MDMyL2Jjcy1s/b2dvLnBuZz93aWR0/aD01OTEmaGVpZ2h0/PTc1MA" />
+    </div>
+    <div className="col-span-12 lg:col-span-11 flex justify-center flex-col">
+      <span className="text-2xl ml-4 font-semibold">British Computer Society</span>
+      <p className="ml-4 text-lg font-light">BCS, The Chartered Institute for IT, promotes wider social and economic progress through the advancement of information technology science and practice.</p>
+      <a href="https://www.bcs.org/" className="text-red-600 ml-4">Learn more</a>
+    </div>
+  </div>
+
+  <div className="grid grid-cols-12 gap-2 mt-24">
+    <div className="w-14 h-10">
+    <img className="h-12 w-16" src="https://imgs.search.brave.com/uKGtZUL0LKBblSlPytEW7E-esAacN1UUujDd9eW0_Zw/rs:fit:155:120:1/g:ce/aHR0cHM6Ly9icmlu/Z2l0b25uaS5jby51/ay93cC1jb250ZW50/L3VwbG9hZHMvMjAy/MS8wNy9icmluZy1p/dC1vbi5wbmc" />
+    </div>
+    <div className="col-span-12 lg:col-span-11 flex justify-center flex-col">
+      <span className="text-2xl ml-4 font-semibold">Bring IT On NI</span>
+      <p className="ml-4 text-lg font-light">Bring IT On was formed to address the skills shortage and employability issues within the IT sector in Northern Ireland. Their mission is to ensure that Northern Irish IT companies have an ongoing diverse pipeline of skilled talent fit for industry needs.</p>
+      <a href="https://www.bcs.org/" className="text-red-600 ml-4">Learn more</a>
+    </div>
+  </div>
+
+</div>
+<div>
+
+
+<div className="grid grid-cols-12 gap-2">
+    <div className="w-16 h-16">
+    <img className="h-16 w-16" src="https://imgs.search.brave.com/oQXB-dBanFBokjn1XO3c1ftx5avQGQBQnm3hKh2u6Dk/rs:fit:1200:1200:1/g:ce/aHR0cDovLzEuYnAu/YmxvZ3Nwb3QuY29t/Ly1qLW15bGUxU19k/ay9VdUtZYm10T1hR/SS9BQUFBQUFBQUJv/OC9qY05CNDhyZUZH/RS9zMTYwMC9Db2Rl/Q2x1Yi1Mb2dvLmpw/Zw" />
+    </div>
+    <div className="col-span-12 lg:col-span-11 flex justify-center flex-col">
+      <span className="text-2xl ml-4 font-semibold">Code Club</span>
+      <p className="ml-4 text-lg font-light">The Code Club initiative aims to provide mostly free opportunities for children aged 9 to 13 to develop coding skills through free after-school clubs.</p>
+      <a href="https://codeclub.org/en/" className="text-red-600 ml-4">Learn more</a>
+    </div>
+  </div>
+
+  <div className="grid grid-cols-12 gap-2 mt-16">
+    <div className="w-14 h-14">
+    <img className="h-16" src="https://imgs.search.brave.com/kfBOtrm781tW0HG7IRmYP6Uar8qxdnNxthr9zsgI5mA/rs:fit:400:400:1/g:ce/aHR0cHM6Ly9wYnMu/dHdpbWcuY29tL3By/b2ZpbGVfaW1hZ2Vz/LzM0NDUxMzI2MTU3/MzA0MjEzOS80MzMw/MGY4ZDRiZWMyYjkz/MDM0MmE0N2RjNzI0/ZmYyMF80MDB4NDAw/LmpwZWc" />
+    </div>
+    <div className="col-span-12 lg:col-span-11 flex justify-center flex-col">
+      <span className="text-2xl ml-4 font-semibold">CoderDojo</span>
+      <p className="ml-4 text-lg font-light">CoderDojo is a global movement of free, volunteer-led, community-based computer programming clubs for young people. Children can visit a Dojo where they can learn to code and explore technology in an creative and social environment.</p>
+      <a href="https://coderdojo.com/" className="text-red-600 ml-4">Learn more</a>
+    </div>
+  </div>
+
+  <div className="grid grid-cols-12 gap-2 mt-8">
+    <div className="w-14 h-14">
+    <img className="h-16" src="https://d3ku2up3znex6l.cloudfront.net/public/sitereview_listing/4e/1c/01/11a33_c80b.jpg?c=8cee" />
+    </div>
+    <div className="col-span-12 lg:col-span-11 flex justify-center flex-col">
+      <span className="text-2xl ml-4 font-semibold">Sync NI</span>
+      <p className="ml-4 text-lg font-light">Sync NI, based in Belfast is the leading media outlet for Northern Ireland’s Technology and Business Industries. Our website and magazine keeps readers informed on the latest technology and business news, jobs and events.</p>
+      <a href="https://syncni.com/" className="text-red-600 ml-4">Learn more</a>
+    </div>
+  </div>
+
+
+</div>
+
+
+</div>
+
 </div>
 </>
   )
