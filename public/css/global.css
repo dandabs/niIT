@@ -7,4 +7,13 @@
 body {
     font-family: 'Overpass', 'SF Pro Text', 'SF Pro Icons', 'Helvetica Neue', 'Helvetica',
       'Arial', sans-serif;
+    position: relative;
+    min-height: calc(100vh - 10px);
+    overflow-x: hidden;
+}
+
+body::after {
+  height: 198px;
+  content: '';
+  display: block;
 }

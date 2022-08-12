@@ -7,7 +7,7 @@ function classNames(...classes) {
 
 export default function Course({ title, level, code, campus, time, school, url, apprenticeship, type, image }) {
     return (
-        <div className={classNames("grid grid-cols-12 gap-2 border-[2px] border-gray-100 my-5 p-5 border-l-8 rounded-md", apprenticeship ? "border-l-yellow-600" : "border-l-red-600")}>
+        <div className={classNames("dark:hover:bg-neutral-800 grid grid-cols-12 gap-2 border-[2px] border-gray-100 dark:border-b-neutral-600 dark:border-r-neutral-600 dark:border-t-neutral-600 my-5 p-5 border-l-8 rounded-md", apprenticeship ? "border-l-yellow-600" : "border-l-red-600")}>
             <div className=" align-middle col-span-2 px-5" style={{alignSelf: "center"}}>
                     <img src={image} />
             </div>
@@ -18,23 +18,23 @@ export default function Course({ title, level, code, campus, time, school, url, 
             </div>
             <div className="col-span-4">
                 <div className="flex">
-                    <AcademicCapIcon className="h-5 w-5 text-gray-500" />
-                    <p className="ml-1 text-gray-500">Level {level}</p>
+                    <AcademicCapIcon className="h-5 w-5 text-gray-500 dark:text-gray-400" />
+                    <p className="ml-1 text-gray-500 dark:text-gray-400">Level {level}</p>
                 </div>
                 <div className="flex">
-                    <ClockIcon className="h-5 w-5 text-gray-500" />
-                    <p className="ml-1 text-gray-500">{time}</p>
+                    <ClockIcon className="h-5 w-5 text-gray-500 dark:text-gray-400" />
+                    <p className="ml-1 text-gray-500 dark:text-gray-400">{time}</p>
                 </div>
                 <div className="flex">
-                    <HomeIcon className="h-5 w-5 text-gray-500" />
-                    <p className="ml-1 text-gray-500">{type}</p>
+                    <HomeIcon className="h-5 w-5 text-gray-500 dark:text-gray-400" />
+                    <p className="ml-1 text-gray-500 dark:text-gray-400">{type}</p>
                 </div>
                 {
                     apprenticeship ? 
                 
                 <div className="flex">
-                    <BriefcaseIcon className="h-5 w-5 text-gray-500" />
-                    <p className="ml-1 text-gray-500">Apprenticeship</p>
+                    <BriefcaseIcon className="h-5 w-5 text-gray-500 dark:text-gray-400" />
+                    <p className="ml-1 text-gray-500 dark:text-gray-400">Apprenticeship</p>
                 </div>
 
                 : null }

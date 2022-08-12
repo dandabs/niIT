@@ -8,10 +8,10 @@ export default async function handler(req, res) {
               q: "UPDATE users SET displayname=?, bio=? WHERE username=?",
               v: [req.query.displayname, req.query.bio, req.query.user]
             });
-            console.log(result);
+            //console.log(result);
             res.send(result);
           } catch (error) {
-            console.log(error);
+            //console.log(error);
           }
 
     } else {

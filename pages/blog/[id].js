@@ -34,24 +34,24 @@ export default function BlogPost() {
 
   return (
     <>
-      <div id="nav" className="py-2 px-8 bg-gray-50 border-gray-100 border-b-2">
+      <div id="nav" className="py-2 px-8 bg-gray-50 border-gray-100 dark:bg-neutral-800 dark:border-neutral-700 border-b-2">
         <span className="inline font-bold">Home</span>
-        <span className="px-4 inline text-gray-500 font-bold">{">"}</span>
-        <span className="inline text-gray-500 font-bold">Blog</span>
-        <span className="px-4 inline text-gray-500 font-bold">{">"}</span>
-        <span className="inline text-gray-500 font-bold">{data.title}</span>
+        <span className="px-4 inline text-gray-500 dark:text-gray-400 font-bold">{">"}</span>
+        <span className="inline text-gray-500 dark:text-gray-400 font-bold">Blog</span>
+        <span className="px-4 inline text-gray-500 dark:text-gray-400 font-bold">{">"}</span>
+        <span className="inline text-gray-500 dark:text-gray-400 font-bold">{data.title}</span>
       </div>
       <div id="container" className="flex flex-col justify-between align-middle items-center">
       <div id="header" className="pt-10 pb-5 w-9/12">
           <h1 className="font-extrabold text-4xl">{data.title}</h1>
           <div className="flex flex-row">
               <div className="flex mr-4">
-                <ChatIcon className="h-5 w-5 text-gray-500" />
-                <p className="ml-1 text-gray-500">{data.displayname}</p>
+                <ChatIcon className="h-5 w-5 text-gray-500 dark:text-gray-400" />
+                <p className="ml-1 text-gray-500 dark:text-gray-400">{data.displayname}</p>
               </div>
               <div className="flex mr-4">
-                <ClockIcon className="h-5 w-5 text-gray-500" />
-                <p className="ml-1 text-gray-500">{new Date(data.time).getDate()}/{new Date(data.time).getMonth() + 1}/{new Date(data.time).getFullYear()}</p>
+                <ClockIcon className="h-5 w-5 text-gray-500 dark:text-gray-400" />
+                <p className="ml-1 text-gray-500 dark:text-gray-400">{new Date(data.time).getDate()}/{new Date(data.time).getMonth() + 1}/{new Date(data.time).getFullYear()}</p>
               </div>
           </div>
       </div>
@@ -68,7 +68,7 @@ export default function BlogPost() {
         <span className="font-bold text-xl">{data.displayname}</span>
         <a href={"/@" + data.username} className="text-red-600 font-semibold">Visit profile</a>
         <span>{data.bio}</span>
-        <div className="flex items-center mt-4">
+        <div className="flex items-center mt-4 mb-12">
             <a href={""}><SiTwitter className="text-gray-300 hover:text-gray-400 text-5xl mx-2" /></a>
             <a href={""}><SiInstagram className="text-gray-300 hover:text-gray-400 text-5xl mx-2" /></a>
             <a href={""}><SiLinkedin className="text-gray-300 hover:text-gray-400 text-5xl mx-2" /></a>

@@ -38,12 +38,12 @@ export default function Register() {
 
   return (
     <>
-      <div id="nav" className="py-2 px-8 bg-gray-50 border-gray-100 border-b-2">
+      <div id="nav" className="py-2 px-8 bg-gray-50 border-gray-100 dark:bg-neutral-800 dark:border-neutral-700 border-b-2">
         <span className="inline font-bold">Home</span>
-        <span className="px-4 inline text-gray-500 font-bold">{">"}</span>
-        <span className="inline text-gray-500 font-bold">Account</span>
-        <span className="px-4 inline text-gray-500 font-bold">{">"}</span>
-        <span className="inline text-gray-500 font-bold">Sign up</span>
+        <span className="px-4 inline text-gray-500 dark:text-gray-400 font-bold">{">"}</span>
+        <span className="inline text-gray-500 dark:text-gray-400 font-bold">Account</span>
+        <span className="px-4 inline text-gray-500 dark:text-gray-400 font-bold">{">"}</span>
+        <span className="inline text-gray-500 dark:text-gray-400 font-bold">Sign up</span>
       </div>
       <div id="container" className="flex flex-col justify-center align-middle items-center h-full" style={{
         backgroundImage: 'url("https://matrixni.org/wp-content/uploads/2022/04/Matrix-Picture-27.jpg")',
@@ -63,26 +63,26 @@ export default function Register() {
           </div>
         </div>
         <div className="flex justify-center mt-12 flex-col items-center">
-          <p className="float-left">Username</p>
+          <p className="float-left dark:text-neutral-700">Username</p>
           <input
                   type="text"
                   name="username"
                   id="username"
-                  className="bg-gray-200 w-2/3 rounded-2xl focus:ring-indigo-500 focus:border-indigo-500 pl-8 pr-12 sm:text-sm border-gray-400 h-full flex items-center justify-center px-8 py-3 border text-base font-medium"
+                  className="dark:text-neutral-700 bg-gray-200 w-2/3 rounded-2xl focus:ring-indigo-500 focus:border-indigo-500 pl-8 pr-12 sm:text-sm border-gray-400 h-full flex items-center justify-center px-8 py-3 border text-base font-medium"
             />
 
-            <p className="float-left mt-4">Password</p>
+            <p className="float-left mt-4 dark:text-neutral-700">Password</p>
             <input
                   type="password"
                   name="password"
                   id="password"
-                  className="bg-gray-200 w-2/3 rounded-2xl focus:ring-indigo-500 focus:border-indigo-500 pl-8 pr-12 sm:text-sm border-gray-400 h-full flex items-center justify-center px-8 py-3 border text-base font-medium"
+                  className="dark:text-neutral-700 bg-gray-200 w-2/3 rounded-2xl focus:ring-indigo-500 focus:border-indigo-500 pl-8 pr-12 sm:text-sm border-gray-400 h-full flex items-center justify-center px-8 py-3 border text-base font-medium"
             />
 
             <button className="bg-neutral-900 rounded-2xl w-2/3 mt-4 text-white py-3" onClick={(e) => tryLogin(e, document.getElementById('username').value, document.getElementById('password').value)}>
               Register
             </button>
-            <p className="mt-12 mb-2">Already have an account? Sign in <a href="/login" className="text-red-600">here</a>.</p>
+            <p className="mt-12 mb-2 dark:text-neutral-700">Already have an account? Sign in <a href="/account/login" className="text-red-600">here</a>.</p>
         </div>
       </div>
       </div>

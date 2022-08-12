@@ -28,10 +28,10 @@ export default function Search() {
 
   return (
     <>
-      <div id="nav" className="py-2 px-8 bg-gray-50 border-gray-100 border-b-2">
+      <div id="nav" className="py-2 px-8 bg-gray-50 border-gray-100 dark:bg-neutral-800 dark:border-neutral-700 border-b-2">
         <span className="inline font-bold">Home</span>
-        <span className="px-4 inline text-gray-500 font-bold">{">"}</span>
-        <span className="inline text-gray-500 font-bold">Blog</span>
+        <span className="px-4 inline text-gray-500 dark:text-gray-400 font-bold">{">"}</span>
+        <span className="inline text-gray-500 dark:text-gray-400 font-bold">Blog</span>
       </div>
       <div id="container" className="flex flex-col justify-between align-middle items-center">
       <div id="header">
@@ -44,7 +44,7 @@ export default function Search() {
                   name="s"
                   id="terms"
                   defaultValue={query.t}
-                  className="w-[57rem] focus:ring-indigo-500 focus:border-indigo-500 pl-8 pr-12 sm:text-sm rounded-r-none border-gray-300 rounded-m h-full flex items-center justify-center px-8 py-3 border text-base font-medium rounded-md"
+                  className="w-[57rem] dark:bg-neutral-800 dark:border-neutral-700 focus:ring-indigo-500 focus:border-indigo-500 pl-8 pr-12 sm:text-sm rounded-r-none border-gray-300 rounded-m h-full flex items-center justify-center px-8 py-3 border text-base font-medium rounded-md"
                   placeholder="Keywords"
                 />
               </div>
@@ -52,7 +52,7 @@ export default function Search() {
                 <button
                   href="#"
                   type="submit"
-                  className="w-full flex items-center justify-center px-8 py-3 border rounded-l-none text-base font-medium rounded-md text-white bg-red-600 hover:bg-red-700 md:py-4 md:text-lg md:px-10"
+                  className="w-full flex items-center justify-center px-8 py-3 rounded-l-none text-base font-medium rounded-md text-white bg-red-600 hover:bg-red-700 md:py-4 md:text-lg md:px-10"
                 >
                   Search
                 </button>

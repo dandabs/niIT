@@ -11,7 +11,7 @@ function classNames(...classes) {
 export default function Forum({ data }) {
 
     return (
-        <div className={"grid grid-cols-12 gap-x-2 border-[2px] border-gray-100 mb-5 pb-5 border-l-8 rounded-md border-l-red-600 border-t-red-600"}>
+        <div className={"grid grid-cols-12 gap-x-2 border-[2px] border-gray-100 dark:border-r-neutral-900 dark:border-b-neutral-900 mb-5 pb-5 border-l-8 rounded-md border-l-red-600 border-t-red-600"}>
             <div className="col-span-12 bg-red-600 text-white pl-2 py-2 rounded-br-sm">
                 <span className="font-bold">{data.name}</span>
             </div>

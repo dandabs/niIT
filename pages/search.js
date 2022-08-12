@@ -19,12 +19,12 @@ export default function Search() {
             if (query.c == 'he') params1.push('higher');
         }
 
-        console.log('/api/education?' + params1.join('&'));
+        //console.log('/api/education?' + params1.join('&'));
 
         setLoading(true);
         const res1 = await fetch('/api/education?' + params1.join('&'))
         const data1 = await res1.json();
-        console.log(data1);
+        //console.log(data1);
         setData(data1);
         setLoading(false);
       }
@@ -33,10 +33,10 @@ export default function Search() {
 
   return (
     <>
-      <div id="nav" className="py-2 px-8 bg-gray-50 border-gray-100 border-b-2">
+      <div id="nav" className="py-2 px-8 bg-gray-50 border-gray-100 dark:bg-neutral-800 dark:border-neutral-700 border-b-2">
         <span className="inline font-bold">Home</span>
-        <span className="px-4 inline text-gray-500 font-bold">{">"}</span>
-        <span className="inline text-gray-500 font-bold">Search</span>
+        <span className="px-4 inline text-gray-500 dark:text-gray-400 font-bold">{">"}</span>
+        <span className="inline text-gray-500 dark:text-gray-400 font-bold">Search</span>
       </div>
       <div id="container" className="flex flex-col justify-between align-middle items-center">
       <div id="header">
@@ -48,7 +48,7 @@ export default function Search() {
                   type="text"
                   name="c"
                   id="category"
-                  className="focus:ring-indigo-500 focus:border-indigo-500 pl-8 pr-12 sm:text-sm rounded-r-none border-gray-300 rounded-m h-full w-full flex items-center justify-center px-8 py-3 border text-base font-medium rounded-md"
+                  className="dark:bg-neutral-800 dark:border-neutral-700 focus:ring-indigo-500 focus:border-indigo-500 pl-8 pr-12 sm:text-sm rounded-r-none border-gray-300 rounded-m h-full w-full flex items-center justify-center px-8 py-3 border text-base font-medium rounded-md"
                 >
                   <option value="fe" selected={query.c === "fe"}>Further Education</option>
                   <option value="he" selected={query.c === "he"}>Higher Education</option>
@@ -63,7 +63,7 @@ export default function Search() {
                   name="t"
                   id="terms"
                   defaultValue={query.t}
-                  className="w-[28rem] focus:ring-indigo-500 focus:border-indigo-500 pl-8 pr-12 sm:text-sm rounded-l-none rounded-r-none border-gray-300 rounded-m h-full w-full flex items-center justify-center px-8 py-3 border text-base font-medium rounded-md"
+                  className="w-[28rem] dark:bg-neutral-800 dark:border-neutral-700 focus:ring-indigo-500 focus:border-indigo-500 pl-8 pr-12 sm:text-sm rounded-l-none rounded-r-none border-gray-300 rounded-m h-full w-full flex items-center justify-center px-8 py-3 border text-base font-medium rounded-md"
                   placeholder="Keywords"
                 />
               </div>
@@ -72,7 +72,7 @@ export default function Search() {
                   type="text"
                   name="l"
                   id="location"
-                  className="focus:ring-indigo-500 focus:border-indigo-500 pl-8 pr-12 sm:text-sm rounded-r-none rounded-l-none border-gray-300 rounded-m h-full w-full flex items-center justify-center px-8 py-3 border text-base font-medium rounded-md"
+                  className="dark:bg-neutral-800 dark:border-neutral-700 focus:ring-indigo-500 focus:border-indigo-500 pl-8 pr-12 sm:text-sm rounded-r-none rounded-l-none border-gray-300 rounded-m h-full w-full flex items-center justify-center px-8 py-3 border text-base font-medium rounded-md"
                 >
                   <option value="all" selected={query.l === "all"}>Northern Ireland- wide</option>
                   <option value="ant" selected={query.l === "ant"}>Antrim</option>
@@ -87,7 +87,7 @@ export default function Search() {
                 <button
                   href="#"
                   type="submit"
-                  className="w-full flex items-center justify-center px-8 py-3 border rounded-l-none text-base font-medium rounded-md text-white bg-red-600 hover:bg-red-700 md:py-4 md:text-lg md:px-10"
+                  className="w-full flex items-center justify-center px-8 py-3 rounded-l-none text-base font-medium rounded-md text-white bg-red-600 hover:bg-red-700 md:py-4 md:text-lg md:px-10"
                 >
                   Search
                 </button>
@@ -98,7 +98,7 @@ export default function Search() {
       </div>
       <div id="main" className="w-9/12 grid grid-cols-12 gap-8">
           <div id="sidebar" className="col-span-3">
-              <div className="rounded-md border-[2px] border-gray-100 p-5">
+              <div className="rounded-md border-[2px] border-gray-100 dark:border-neutral-600 p-5">
                   <p className="text-2xl mb-4">Filter</p>
 
                   <p className="font-bold">Qualification levels</p>

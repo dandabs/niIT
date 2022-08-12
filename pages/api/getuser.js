@@ -11,10 +11,10 @@ export default async function handler(req, res) {
               q: "SELECT * FROM users WHERE username=?",
               v: [req.query.user]
             });
-            console.log(result);
+            //console.log(result);
             res.send(result);
           } catch (error) {
-            console.log(error);
+            //console.log(error);
           }
 
     } else {

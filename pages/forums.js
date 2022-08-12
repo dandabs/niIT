@@ -132,10 +132,10 @@ export default function Search() {
 
   return (
     <>
-      <div id="nav" className="py-2 px-8 bg-gray-50 border-gray-100 border-b-2">
+      <div id="nav" className="py-2 px-8 bg-gray-50  dark:bg-neutral-800 dark:border-neutral-700 border-b-2">
         <span className="inline font-bold">Home</span>
-        <span className="px-4 inline text-gray-500 font-bold">{">"}</span>
-        <span className="inline text-gray-500 font-bold">Forums</span>
+        <span className="px-4 inline text-gray-500 dark:text-gray-400 font-bold">{">"}</span>
+        <span className="inline text-gray-500 dark:text-gray-400 font-bold">Forums</span>
       </div>
       <div id="container" className="flex flex-col justify-between align-middle items-center">
       <div id="header">
@@ -148,7 +148,7 @@ export default function Search() {
                   name="s"
                   id="terms"
                   defaultValue={query.t}
-                  className="w-[57rem] focus:ring-indigo-500 focus:border-indigo-500 pl-8 pr-12 sm:text-sm rounded-r-none border-gray-300 rounded-m h-full flex items-center justify-center px-8 py-3 border text-base font-medium rounded-md"
+                  className="w-[57rem] dark:bg-neutral-800 dark:border-neutral-700 focus:ring-indigo-500 focus:border-indigo-500 pl-8 pr-12 sm:text-sm rounded-r-none border-gray-300 rounded-m h-full flex items-center justify-center px-8 py-3 border text-base font-medium rounded-md"
                   placeholder="Keywords"
                 />
               </div>
@@ -156,7 +156,7 @@ export default function Search() {
                 <button
                   href="#"
                   type="submit"
-                  className="w-full flex items-center justify-center px-8 py-3 border rounded-l-none text-base font-medium rounded-md text-white bg-red-600 hover:bg-red-700 md:py-4 md:text-lg md:px-10"
+                  className="w-full flex items-center justify-center px-8 py-3 rounded-l-none text-base font-medium rounded-md text-white bg-red-600 hover:bg-red-700 md:py-4 md:text-lg md:px-10"
                 >
                   Search
                 </button>
@@ -175,7 +175,7 @@ export default function Search() {
               }
           </div>
           <div id="sidebar" className="col-span-3">
-              <div className="rounded-md border-[2px] border-gray-100 p-5">
+              <div className="rounded-md border-[2px] dark:border-neutral-600 p-5">
                   <p className="text-2xl mb-4">Recent Posts</p>
 
                   {/* className="mb-2">Join the Kainos Amongus Server for more information and to talk to industry professionals!</p>*/}
@@ -184,20 +184,20 @@ export default function Search() {
                     data.map((post) => (
                       <div className="mb-2">
                         <a href={"/blog/" + post.id}><p className="font-semibold">{post.title}</p></a>
-                        <a href={"/@" + post.username}><p className="text-gray-500">by <span className="text-red-600">{post.displayname}</span></p></a>
-                        <p className="text-gray-500">{new Date(post.time).toLocaleDateString()} at {new Date(post.time).toLocaleTimeString()}</p>
+                        <a href={"/@" + post.username}><p className="text-gray-500 dark:text-gray-400">by <span className="text-red-600">{post.displayname}</span></p></a>
+                        <p className="text-gray-500 dark:text-gray-400">{new Date(post.time).toLocaleDateString()} at {new Date(post.time).toLocaleTimeString()}</p>
                       </div>
                     ))
                   }
 
               </div>
 
-              <div className="rounded-md border-[2px] border-gray-100 p-5 mt-3">
+              <div className="rounded-md border-[2px] dark:border-neutral-600 p-5 mt-3">
                   <p className="text-2xl mb-4">Community</p>
 
                   {/* className="mb-2">Join the Kainos Amongus Server for more information and to talk to industry professionals!</p>*/}
 
-                  <iframe className="w-full" src="https://discord.com/widget?id=1006198736248123504&theme=light" height="600" allowtransparency="true" frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
+                  <iframe className="w-full" src="https://discord.com/widget?id=1006198736248123504&theme=dark" height="600" allowtransparency="true" frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
 
               </div>
 

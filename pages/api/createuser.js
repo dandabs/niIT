@@ -13,11 +13,11 @@ export default async function handler(req, res) {
               q: "INSERT INTO users (username, password, displayname, photo, bio) VALUES (?,?,?,?,?)",
               v: [req.query.user, req.query.pass, req.query.user, buffer.toString('hex'), " "]
             });
-            console.log(result);
+            //console.log(result);
             res.send({"success": true});
           } catch (error) {
             res.send({"success": false});
-            console.log(error);
+            //console.log(error);
           }
 
     } else {
